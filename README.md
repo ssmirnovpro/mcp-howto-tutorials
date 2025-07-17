@@ -1,105 +1,131 @@
-Script, Node.js 18+, SQLite, @modelcontextprotocol/sdk-typescript, Zod, Jest
+# MCP How-To Tutorials
 
-## Getting Started
+A comprehensive collection of tutorials for building Model Context Protocol (MCP) servers. Learn to create AI integrations that let Claude work directly with your applications, databases, and APIs.
 
-### Prerequisites
+## What You'll Learn
+
+- **MCP Protocol Fundamentals** - Understanding JSON-RPC 2.0 communication with AI assistants
+- **Tool Development** - Creating and registering MCP tools that Claude can use autonomously  
+- **Data Integration** - Connecting Claude to databases, APIs, and file systems
+- **Production Practices** - Testing, error handling, deployment, and security considerations
+
+## Prerequisites
 
 - Node.js 18 or higher
 - Claude Desktop application
 - Basic knowledge of TypeScript/JavaScript
 
-### Quick Start
+## Quick Start
 
 1. **Clone the repository:**
 ```bash
-git clone [repository-url]
+git clone https://github.com/ssmirnovpro/mcp-howto-tutorials.git
 cd mcp-howto-tutorials
 ```
 
-2. **Start with v1:**
+2. **Start with the first tutorial:**
 ```bash
-cd todo-list-v1
+cd 01-building-your-first-mcp-server/example
 npm install
 npm run build
 ```
 
 3. **Configure Claude Desktop:**
-Add the server to your Claude Desktop configuration (see individual tutorial READMEs for details)
+Add the server to your Claude Desktop configuration (see tutorial README for details)
 
 4. **Test the implementation:**
 ```bash
 npm test
 ```
 
+## Tutorials
+
+### 📚 01 - Building Your First MCP Server
+**Location:** `01-building-your-first-mcp-server/`
+
+Learn MCP fundamentals by building a TODO manager that Claude can use to create, list, and remove tasks.
+
+**What you'll build:**
+- Complete MCP server with SQLite database
+- Three MCP tools: create_task, remove_task, todo_list
+- Input validation with Zod schemas
+- Comprehensive error handling
+- Full test suite
+
+**Read the tutorial:** [article.md](./01-building-your-first-mcp-server/article.md)
+**Run the code:** [example/](./01-building-your-first-mcp-server/example/)
+
+### 🚀 More Tutorials Coming Soon
+- **02** - Advanced MCP Features: Editing, tagging, and complex workflows
+- **03** - MCP Server Distribution: Packaging and deployment strategies  
+- **04** - External Integrations: Connecting to popular TODO services
+
 ## Project Structure
 
 ```
 mcp-howto-tutorials/
-├── docsru/                          # Russian documentation
-│   ├── mcp-howto-project-structure.md
-│   ├── mcp-todo-list-tdd-spec.md
-│   ├── mcp-tutorial-series-plan.md
-│   └── HOWTO-mcp-server-guide.md
-├── todo-list-v1/                   # Basic MCP Server Implementation
-│   ├── src/
-│   ├── tests/
-│   ├── package.json
-│   └── README.md
-└── README.md                       # This file
+├── 01-building-your-first-mcp-server/
+│   ├── article.md                   # Tutorial article
+│   └── example/                     # Working code example
+│       ├── src/                     # TypeScript source
+│       ├── tests/                   # Test suite
+│       ├── package.json
+│       └── README.md                # Setup instructions
+├── 02-advanced-features/            # Coming soon
+├── 03-deployment/                   # Coming soon
+└── README.md                        # This file
 ```
 
-## Learning Path
+## Key Technologies
 
-### Basic MCP Server Implementation
-- [todo-list-v1/](./todo-list-v1/) - Complete MCP server with SQLite
-- **Concepts:** Server setup, tools, database integration, testing
+- **Model Context Protocol (MCP)** - Anthropic's protocol for AI-tool communication
+- **TypeScript** - Type-safe development with modern JavaScript features
+- **SQLite** - Lightweight database for data persistence
+- **Zod** - Runtime type validation and schema definition
+- **Jest** - Testing framework for unit and integration tests
 
-## Key Features Demonstrated
+## Features Demonstrated
 
 - ✅ **MCP Protocol Implementation** - Proper JSON-RPC 2.0 communication
 - ✅ **Tool Development** - Creating and registering MCP tools
 - ✅ **Data Persistence** - SQLite integration with proper schema
 - ✅ **Input Validation** - Zod schemas for type-safe validation
-- ✅ **Error Handling** - Comprehensive error management
+- ✅ **Error Handling** - Comprehensive error management for AI interaction
 - ✅ **Testing** - Unit and integration tests with Jest
 - ✅ **TypeScript** - Full type safety and modern JavaScript
-- ✅ **Production Practices** - Logging, configuration, deployment
+- ✅ **Production Practices** - Logging, configuration, deployment readiness
 
-## Documentation
+## Development Workflow
 
-### Core Documentation (Russian)
-- **[Project Structure](./docsru/mcp-howto-project-structure.md)** - Overall project organization
-- **[TDD Specification](./docsru/mcp-todo-list-tdd-spec.md)** - Detailed implementation spec
-- **[MCP Server Guide](./docsru/HOWTO-mcp-server-guide.md)** - Production checklist and best practices
+Each tutorial follows the same structure:
 
-### Tutorial README
-The todo-list-v1 has comprehensive README with:
-- Setup instructions
-- Code walkthrough
-- Usage examples
-- Troubleshooting guide
+1. **Read the article** - Understanding concepts and architecture
+2. **Examine the code** - Well-commented implementation examples
+3. **Run the tests** - Verify functionality and learn testing patterns
+4. **Integrate with Claude** - Real-world usage with Claude Desktop
+5. **Experiment** - Try different prompts and see how Claude uses your tools
 
-## Best Practices Demonstrated
+## Best Practices Covered
 
 ### Code Quality
 - **TypeScript strict mode** - Maximum type safety
-- **ESLint configuration** - Consistent code style
+- **ESLint configuration** - Consistent code style  
 - **Comprehensive testing** - Unit and integration tests
 - **Error boundaries** - Graceful error handling
-- **Input validation** - Runtime type checking with Zod
+- **Input validation** - Runtime type checking
 
 ### Production Readiness
-- **Configuration management** - Environment-based config
+- **Configuration management** - Environment-based configuration
 - **Database best practices** - Proper schema, migrations, indexing
 - **Logging and monitoring** - Structured logging with levels
 - **Resource management** - Proper cleanup and connection handling
 - **Security considerations** - Input sanitization, safe defaults
 
 ### MCP-Specific
-- **Protocol compliance** - Follows MCP 2024-11-05 specification
+- **Protocol compliance** - Follows MCP specification exactly
 - **Tool design patterns** - Reusable tool architecture
-- **Resource management** - Efficient data handling
-- **Claude Desktop integration** - Proper configuration examples
+- **AI-friendly errors** - Error messages that help Claude understand problems
+- **Claude Desktop integration** - Proper configuration and troubleshooting
 
 ## Contributing
 
@@ -107,31 +133,15 @@ We welcome contributions! Please:
 
 1. **Start with existing tutorials** - Understand the patterns first
 2. **Follow TypeScript standards** - Maintain type safety
-3. **Add comprehensive tests** - All new features need tests
-4. **Update documentation** - Keep READMEs current
+3. **Add comprehensive tests** - All new features need tests  
+4. **Update documentation** - Keep articles and READMEs current
 5. **Test with Claude Desktop** - Ensure real-world functionality
 
-### Development Setup
-```bash
-# Install dependencies
-cd todo-list-v1
-npm install
-
-# Run tests
-npm test
-
-# Run linting
-npm run lint
-
-# Build the project
-npm run build
-```
-
-## Support and Community
+## Support
 
 - **Issues:** Report bugs and request features via GitHub issues
 - **Discussions:** Join conversations about MCP development
-- **Documentation:** Comprehensive guides in both English and Russian
+- **Documentation:** Each tutorial includes comprehensive setup guides
 
 ## License
 
@@ -140,9 +150,9 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 ## Acknowledgments
 
 - **Anthropic** - For creating the Model Context Protocol
-- **Claude Desktop** - For providing the runtime environment
+- **Claude Desktop** - For providing the runtime environment  
 - **MCP Community** - For feedback and contributions
 
 ---
 
-**Ready to start building?** Head to [todo-list-v1/](./todo-list-v1/) and begin your MCP journey!
+**Ready to start building?** Head to [01-building-your-first-mcp-server/](./01-building-your-first-mcp-server/) and begin your MCP journey!
